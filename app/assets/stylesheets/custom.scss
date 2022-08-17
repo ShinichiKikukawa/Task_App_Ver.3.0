@@ -52,22 +52,41 @@ p {
 
 /* ヘッダー */
 
+#header {
+  background-color: teal;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
   color: #fff;
-  text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  font-style: italic;
 }
 
 #logo:hover {
-  color: #fff;
-  text-decoration: none;
+  color: silver; 
+  text-decoration: none;/* リンクに出てくる下線を無効にする*/    
 }
 
+li .header-list {
+  color: #fff !important;
+  font-weight: bold;
+  &:hover {
+    color: silver !important;
+  }
+}
+
+li .dropdown-toggle {
+  color: #fff !important;
+  font-weight: bold;
+  &:hover {
+    color: silver !important;
+  }
+}
 /* デバッグウインドウ */
 
 .debug_dump {
