@@ -72,6 +72,7 @@ p {
   text-decoration: none;/* リンクに出てくる下線を無効にする*/    
 }
 
+
 li .header-list {
   color: #fff !important;
   font-weight: bold;
@@ -83,6 +84,7 @@ li .header-list {
 li .dropdown-toggle {
   color: #fff !important;
   font-weight: bold;
+  background-color: teal !important;
   &:hover {
     color: silver !important;
   }
