@@ -17,31 +17,28 @@
 　   
  <div class="col-md-4">
    <h1>ログイン</h1>
-   <%= form_with(scope: :session, url: login_path, local:true)do |f| %>
-        <% if logged_in? %>
-         <%= f.label :email,class: "label-login" %>
-         <%= f.email_field :email,class: 'form-control' %>
+   <%= form_with(scope: :session, url: login_path, local:true) do |f| %>
+      <% if logged_in? %>
+       <%= f.label :メールアドレス, t("sessions.new.email"), class: "label-form" %>
+       <%= f.email_field :email, class: 'form-control' %>
    
-         <%= f.label :password,class: "label-login" %>
-         <%= f.password_field :password,class: 'form-control' %>
+       <%= f.label :password, class: "label-form" %>
+       <%= f.password_field :password, class: 'form-control' %>
       
-         <%= f.submit "ログイン状態です", class: "btn btn-primary btn-block btn-form", disabled: "disabled" %>
-       <% else %> 
-         <%= f.label :email,class: "label-login" %>
-         <%= f.email_field :email,class: 'form-control' %>
+       <%= f.submit "ログイン状態です", class: "btn btn-primary btn-block btn-form", disabled: "disabled" %>
+      <% else %> 
+       <%= f.label :email, class: "label-form" %>
+       <%= f.email_field :email, class: 'form-control' %>
    
-         <%= f.label :password,class: "label-login" %>
-         <%= f.password_field :password,class: 'form-control' %>
+       <%= f.label :password,class: "label-form" %>
+       <%= f.password_field :password,class: 'form-control' %>
          
-         
-         <%= f.label :remember_me, class: "checkbox inline checkbox-login",for: "remember-me"do %>
-          <%= f.check_box :remember_me, id: "remember-me" %>
-          <span>ログイン情報を記憶する</span>
-       <% end %>
-        
-       <%= f.submit "ログイン", class: "btn btn-primary btn-block btn-login" %>
-     <% end %>
-   <%end %>
+       <%= f.label :remember_me, class: "checkbox inline checkbox-login" %>
+       <%= f.check_box :remember_me, id: "remember-me" %>
+       <span>ログイン情報を記憶する</span>
+      
+    <%= f.submit "ログイン", class: "btn btn-primary btn-block btn-form" %>
+   <% end %>
+  <% end %>
  </div>
-</div>
-   
+</div>  
