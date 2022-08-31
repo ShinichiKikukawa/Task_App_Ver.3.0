@@ -1,44 +1,45 @@
 <% provide(:title, "Top") %>
 
 <div class="row">
-   
- <div class="col-md-7">
-  <div class="center jumbotron" id= "top-main" >
-    <h1 id= "top-main-title">TaskApp</h1>
-    <p>TaskAppは簡易ToDo管理ツールです。</p>
-    <p>↓↓初めてのご利用↓↓</p>
-    <% if logged_in? %>
-       <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-success" %>
-    <% else %>
-       <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-success" %>
+  
+  <div class="col-md-7">
+    <div class="center jumbotron" id="top-main">
+      <h1 id="top-main-title">TaskApp</h1>
+      <p>TaskAppは簡易ToDo管理ツールです。</p>
+      <p>↓↓初めてのご利用↓↓</p>
+      <% if logged_in? %>
+        <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-success #{"disabled" unless current_user.admin?}" %>
+      <% else %>
+        <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-success" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <h1>ログイン</h1>
+    <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
+      <% if logged_in? %>
+        <%= f.label :email, t("sessions.new.email"), class: "label-form" %>
+        <%= f.email_field :email, class: 'form-control', readonly: true %>
+  
+        <%= f.label :password, t("sessions.new.password"), class: "label-form" %>
+        <%= f.password_field :password, class: 'form-control', readonly: true %>
+        
+        <%= f.submit "ログイン状態です", class: "btn btn-primary btn-block btn-form", disabled: "disabled" %>
+      <% else %>
+        <%= f.label :email, t("sessions.new.email"), class: "label-form" %>
+        <%= f.email_field :email, class: 'form-control' %>
+  
+        <%= f.label :password, t("sessions.new.password"), class: "label-form" %>
+        <%= f.password_field :password, class: 'form-control' %>
+        
+        <%= f.label :remember_me, class: "checkbox inline checkbox-login", for: "remember-me" do %>
+          <%= f.check_box :remember_me, id: "remember-me" %>
+          <span>ログイン情報を記憶する</span>
+        <% end %>
+        
+        <%= f.submit "ログイン", class: "btn btn-primary btn-block btn-form" %>
+      <% end %>
     <% end %>
   </div>
- </div>
-　   
- <div class="col-md-4">
-   <h1>ログイン</h1>
-   <%= form_with(scope: :session, url: login_path, local:true) do |f| %>
-      <% if logged_in? %>
-       <%= f.label :メールアドレス, t("sessions.new.email"), class: "label-form" %>
-       <%= f.email_field :email, class: 'form-control' %>
-   
-       <%= f.label :password, class: "label-form" %>
-       <%= f.password_field :password, class: 'form-control' %>
-      
-       <%= f.submit "ログイン状態です", class: "btn btn-primary btn-block btn-form", disabled: "disabled" %>
-      <% else %> 
-       <%= f.label :email, class: "label-form" %>
-       <%= f.email_field :email, class: 'form-control' %>
-   
-       <%= f.label :password,class: "label-form" %>
-       <%= f.password_field :password,class: 'form-control' %>
-         
-       <%= f.label :remember_me, class: "checkbox inline checkbox-login" %>
-       <%= f.check_box :remember_me, id: "remember-me" %>
-       <span>ログイン情報を記憶する</span>
-      
-    <%= f.submit "ログイン", class: "btn btn-primary btn-block btn-form" %>
-   <% end %>
-  <% end %>
- </div>
-</div>  
+</div>
