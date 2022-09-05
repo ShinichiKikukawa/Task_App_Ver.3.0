@@ -7,9 +7,12 @@ User.create!( name: "管理者",
 
 puts "Users Created"              
 
+admin_user = User.first
+
 50.times do |n|
-  task_name = "タスク#{n + 1}"
-  detail = "タスク詳細#{n + 1}"
+  name = "タスク#{n + 1}"
+  description = "タスク詳細#{n + 1}"
+  admin_user.tasks.create!(name: name, description: description)
 end
 
 puts "Tasks Created"   

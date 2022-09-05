@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  detail: MyText
+  description: MyText
   user: one
 
 two:
   name: MyString
-  detail: MyText
+  description: MyText
   user: two

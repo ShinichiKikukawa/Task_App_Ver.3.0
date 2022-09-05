@@ -6,4 +6,7 @@ class TasksController < ApplicationController
    @user = User.find(params[:user_id])
    @tasks = @user.tasks
   end
+
+  def edit
+  end
 end

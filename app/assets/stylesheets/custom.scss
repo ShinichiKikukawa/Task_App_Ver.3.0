@@ -88,13 +88,13 @@ li .header-list {
   }
 }
 
-li .dropdown-toggle {
-  color: #fff !important;
+#dropdown-title {
+  background-color: teal;
+}
+
+li .dropdown-header {
+  background-color: rgba(200, 200, 200, 0.5);
   font-weight: bold;
-  background-color: teal !important;
-  &:hover {
-    color: silver !important;
-  }
 }
 /* デバッグウインドウ */
 
