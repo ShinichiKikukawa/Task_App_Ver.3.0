@@ -1,19 +1,19 @@
+<% provide(:title, 'New Task') %>
+
 <h1>タスク新規作成</h1>
-<!-- usable -->
+
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <!-- unusable transform "form with()" -->
-    <form action="/users/1/tasks" accept-charset="UTF-8" method="post">
-    <input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="onHQGCnuUV7YCWvWTGjSq3aMlnJdUMPj4a1b+DpDwsnUeE6yZWv2s3RvMZJrNUvnon2ZCEYS3DdU1nNCjMqqzg==">
-      <!-- unusable transform "f.label" -->
-      <label class="label-form" for="task_name">名称<!-- unusable models/locales/models/ja_yaml --></label>
-      <input class="form-control" type="text" name="task[name]">
-      <!-- unusable transform "f.label" -->
-      <label class="label-form" for="task_description">詳細<!-- unusable models/locales/models/ja_yaml --></label>
-      <textarea rows="5" class="form-control" name="task[description]"></textarea>
+    <%= form_with(model: @task, url: user_tasks_path(@user), local: true) do |f| %>
+      <%= render partial: 'shared/error_messages', locals: { obj: @task } %>
+      
+      <%= f.label :name, class: "label-form" %>
+      <%= f.text_field :name, class: "form-control" %>
 
-      <input type="submit" name="commit" value="新規登録" class="btn btn-lg btn-primary btn-form" data-disable-with="新規登録">
-    </form> 
+      <%= f.label :description, class: "label-form" %>
+      <%= f.text_area :description, rows: 5, class: "form-control" %>
+
+      <%= f.submit "新規登録", class: "btn btn-lg btn-primary btn-form" %>
+    <% end %>
   </div>
- </div>
 </div>
