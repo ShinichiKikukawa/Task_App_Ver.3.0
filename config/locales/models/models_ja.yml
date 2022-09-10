@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      task: タスク
     attributes:
         user:
           id: ID
@@ -14,7 +15,6 @@ ja:
         task:
           id: ID
           name: 名称
-          email: メールアドレス
           description: 詳細
           created_at: 作成日
           updated_at: 更新日

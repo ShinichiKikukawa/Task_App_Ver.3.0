@@ -1,17 +1,21 @@
 class TasksController < ApplicationController
+  before_action :set_user
+  before_action :set_task, only: %i(show edit update destroy)
+  before_action :logged_in_user
+  
   
   def index
-   @user = User.find(params[:user_id])
-   @tasks = @user.tasks
+    @tasks = @user.tasks
   end
-  
+
+  def show
+  end
+
   def new
-    @user = User.find(params[:user_id])
     @task = Task.new
   end
   
   def create
-    @user = User.find(params[:user_id])
     @task = @user.tasks.build(task_params)
     if @task.save
       flash[:success] = "タスクを新規作成しました。"
@@ -20,17 +24,8 @@ class TasksController < ApplicationController
       render :new
     end
   end
-  
-  def show
-    @user = User.find(params[:user_id])
-    @task = Task.new
-    @tasks = @user.tasks
-  end
 
   def edit
-    @user = User.find(params[:user_id])
-    @task = Task.new
-    @tasks = @user.tasks
   end
   
   def update
@@ -43,11 +38,25 @@ class TasksController < ApplicationController
   end
   
   def destroy
+    @task.destroy
+    flash[:success] = "タスクを削除しました。"
+    redirect_to user_tasks_url @user
   end
-   
-   private
+  
+  private
 
     def task_params
       params.require(:task).permit(:name, :description)
+    end
+    
+    def set_user
+      @user = User.find(params[:user_id])
+    end
+
+    def set_task
+      unless @task = @user.tasks.find_by(id: params[:id])
+        flash[:danger] = "権限がありません。"
+        redirect_to user_tasks_url @user
+      end
     end
 end
