@@ -12,7 +12,11 @@ gem 'jquery-rails'
 gem 'turbolinks',   '~> 5'
 gem 'jbuilder',     '~> 2.5'
 gem 'rails-i18n' # 今回はこのgemを追加しています。
+gem 'active_decorator'
+gem 'will_paginate' # この行を追加してください。
+gem 'bootstrap-will_paginate' # この行を追加してください。
 gem 'rails_autolink'
+
 
 group :development, :test do
   gem 'sqlite3'
