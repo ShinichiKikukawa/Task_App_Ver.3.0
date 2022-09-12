@@ -9,7 +9,6 @@
 * Git
 * Heroku
 * Git(HTTPSからSSH通信へ変更)
-* Git(HTTPSからSSH通信へ変更2)
 
 ```
 $ git clone https://github.com/sample-874/sample-app.git
