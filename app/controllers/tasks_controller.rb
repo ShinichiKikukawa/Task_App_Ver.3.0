@@ -44,6 +44,7 @@ class TasksController < ApplicationController
     redirect_to user_tasks_url @user
   end
   
+  
   private
 
     def task_params
