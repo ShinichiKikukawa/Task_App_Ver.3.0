@@ -16,6 +16,7 @@ gem 'active_decorator'
 gem 'will_paginate' # この行を追加してください。
 gem 'bootstrap-will_paginate' # この行を追加してください。
 gem 'rails_autolink'
+gem 'pry-rails'
 
 
 group :development, :test do
